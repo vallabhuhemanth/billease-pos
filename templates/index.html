@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BillEase POS — Smart Billing System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">⚡ BillEase POS</div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Smart Billing.<br>Zero Hassle.</h1>
+        <p>A modern Point of Sale system built with Python & Flask.
+           Fast, reliable, and easy to use for any business.</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features">
+        <h2>What It Does</h2>
+        <div class="cards">
+            <div class="card">
+                <span>🧾</span>
+                <h3>Invoice Generation</h3>
+                <p>Generate and print bills instantly for any transaction.</p>
+            </div>
+            <div class="card">
+                <span>📦</span>
+                <h3>Inventory Tracking</h3>
+                <p>Track stock levels in real-time. Get alerts on low stock.</p>
+            </div>
+            <div class="card">
+                <span>📊</span>
+                <h3>Sales Reports</h3>
+                <p>Daily, weekly and monthly reports at a glance.</p>
+            </div>
+            <div class="card">
+                <span>🔐</span>
+                <h3>Secure Login</h3>
+                <p>Role-based access for admin, cashier and manager.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <h2>About This Project</h2>
+        <p>BillEase POS is built using <strong>Python</strong>, <strong>Flask</strong>,
+        <strong>MySQL</strong> and <strong>HTML/CSS</strong>. Designed as a full stack
+        project to demonstrate real-world billing system capabilities.</p>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+
+        <!-- Flash success message using Jinja2 -->
+        {% if success %}
+            <p class="success-msg">✅ Message sent! I'll get back to you soon.</p>
+        {% endif %}
+
+        <form action="/contact" method="POST">
+            <input type="text"  name="name"    placeholder="Your Name"    required>
+            <input type="email" name="email"   placeholder="Your Email"   required>
+            <textarea           name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Built with ❤️ using Python & Flask &nbsp;|&nbsp; 
+           <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>
