@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — BillEase POS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- ADMIN NAVBAR -->
+    <nav>
+        <div class="logo">⚡ BillEase POS</div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+            <span style="color:#7d8590; font-size:0.9rem;">Welcome, Admin</span>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <div class="dashboard-header">
+            <h2>📬 Contact Messages</h2>
+            <p>All messages submitted through the contact form</p>
+        </div>
+
+        <!-- Show message count -->
+        <div class="message-count">
+            Total Messages: <strong>{{ messages|length }}</strong>
+        </div>
+
+        <!-- Messages table -->
+        {% if messages %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Received At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for msg in messages %}
+                    <tr>
+                        <td>{{ msg[0] }}</td>
+                        <td>{{ msg[1] }}</td>
+                        <td>{{ msg[2] }}</td>
+                        <td>{{ msg[3] }}</td>
+                        <td>{{ msg[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% else %}
+            <div class="no-messages">
+                <p>📭 No messages yet. Check back later!</p>
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
